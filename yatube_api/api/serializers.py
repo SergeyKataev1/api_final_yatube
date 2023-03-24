@@ -54,9 +54,6 @@ class GroupSerializer(ModelSerializer):
 class PostSerializer(ModelSerializer):
     '''Серилизатор постов.'''
     author = SlugRelatedField(slug_field='username', read_only=True)
-    group = SlugRelatedField(
-        slug_field="id", queryset=Group.objects.all(), required=False
-    )
 
     class Meta:
         model = Post
